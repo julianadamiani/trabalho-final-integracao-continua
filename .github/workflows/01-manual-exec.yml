@@ -26,9 +26,10 @@ jobs:
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
 
-      # passed, failed, cancelled
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }} # expressão do ghActions
+        if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
-          path: ./cypress/reports
+          path: cypress/reports/html
+
+          
