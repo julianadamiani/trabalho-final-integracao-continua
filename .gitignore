@@ -4,5 +4,4 @@ cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
 /log/
-cypress.config.js
 npm_install_debug.log
