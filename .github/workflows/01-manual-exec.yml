@@ -27,7 +27,7 @@ jobs:
           path: cypress/reports/html/
   
   e2e-tests-Windows-Chrome:
-    runs-on: 'windows-latest'
+    runs-on: 'ubuntu-latest'
     timeout-minutes: 60
 
     steps:
