@@ -39,8 +39,8 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Testes E2E no Chrome
-        run: yarn run e2e
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
           browser: chrome
 
