@@ -1,30 +1,15 @@
-# CI de nível 01 - Disparo manual a partir de 1 clique
-
-# nome que vai aparecer nas opções de pipe
 name: 'Execução manual N1'
-
-# triggers ou gatilhos de execução (regras de disparo)
-# gatilho de exec manual = workflow-dispatch
 
 on:
   workflow_dispatch:
 
 jobs:
-  # descrição do job
   e2e-tests:
-    # maquina que o job vai executar
     runs-on: 'ubuntu-latest'
     timeout-minutes: 60
 
-    # passo a passo das ações do job
     steps:
-      # clone
       - uses: actions/checkout@v4
-
-      # se precisar testar em uma versão específica do node:
-      #- uses: actions/setup-node@v4
-      #   with:
-      #     node-version: lts/*
 
       - name: Instalando Yarn
         run: npm install -g yarn
@@ -35,8 +20,8 @@ jobs:
       # - name: Instalando Cypress
       #   run: yarn cypress install
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
 
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
@@ -46,4 +31,4 @@ jobs:
         if: ${{ !cancelled() }} # expressão do ghActions
         with:
           name: relatorio-de-testes
-          path: ./reports
+          path: ./cypress/reports
